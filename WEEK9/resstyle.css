@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+  }
+  .header {
+    background-color: black;
+    color: aliceblue;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    padding-right: 3px;
+    overflow: hidden;
+}
+
+.header h1 {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 58px;
+  border-radius: 4px;
+}
+
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: black;
+  color: #94c7e1;
+}
+
+  /* Float the link section to the right */
+.header-right {
+  float: right;
+}
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    /*background-image: url(https://images.squarespace-cdn.com/content/v1/5c5867627a1fbd515af1bd68/1631914145181-KW1T90WGEYVO61TAAAIM/UN+-+BLACKPINK+Photograph.jpg?format=1500w);
+    background-size:contain;*/
+  }
+
+    .column1 {
+    float: left;
+    width: 300px;
+    overflow: hidden;
+    display: block;
+    position: relative;
+
+    margin-left: 65px;
+    margin-top:  45px;
+    margin-bottom: auto;
+    }
+
+    .column2 {
+    float: right;
+    width: 600px;
+    overflow: hidden;
+    }
+    .column3 {
+        float: left;
+        width: 300px;
+        overflow: hidden;
+        display: block;
+        position: relative;
+    
+        margin-left: 65px;
+        margin-top:  45px;
+        margin-bottom: auto;
+        }
+    
+    .column4 {
+        float: right;
+        width: 600px;
+        overflow: hidden;
+    }
+
+    .column5 {
+        float: left;
+        width: 300px;
+        overflow: hidden;
+        display: block;
+        position: relative;
+    
+        margin-left: 65px;
+        margin-top:  45px;
+        margin-bottom: auto;
+        }
+    
+    .column6 {
+        float: right;
+        width: 600px;
+        overflow: hidden;
+    }
+    .row {
+    margin: 60px;
+    padding: 60px;
+    min-height:450px;
+    background-color: white;
+    position: relative;
+    z-index: 1; 
+    border-radius: 50px;
+    }
+    .row2 {
+    margin: 60px;
+    padding: 60px;
+    min-height:450px;
+    background-color: white;
+    position: relative;
+    z-index: 1; 
+    border-radius: 50px;
+    }
+    .row3 {
+        margin: 60px;
+        padding: 60px;
+        min-height:450px;
+        background-color: white;
+        position: relative;
+        z-index: 1; 
+        border-radius: 50px;
+        }
+    
+    /* Style the header */
+    header {
+      /*background: #94c7e1 url("https://images.squarespace-cdn.com/content/v1/5c5867627a1fbd515af1bd68/1631914145181-KW1T90WGEYVO61TAAAIM/UN+-+BLACKPINK+Photograph.jpg?format=1500w") no-repeat fixed; ---*/
+      padding: 10px;
+      text-align: center;
+      font-size: 35px;
+      color: white;
+    }
+
+    p {
+        width: 500px; 
+        margin-left:100px; 
+        position: absolute; 
+        text-align: justify; 
+        font-family:verdana;
+        /*border-style: outset;*/
+    }
+    
+    /* Style the footer */
+    footer {
+      padding: 10px;
+      text-align: center;
+      color: white;
+      position: sticky;
+      max-width: auto;
+    }
+
