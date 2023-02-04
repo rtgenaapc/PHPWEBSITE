@@ -153,17 +153,32 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$name = $_POST['name'];
+$email = $_POST['email'];
+$website = $_POST['website'];
+$comment = $_POST['comment'];
+
+$sql = "INSERT INTO MyGuests (Lastname, email, website, comment)
+VALUES ('$name','$email', '$website', '$comment')";
+
+if ($conn->multi_query($sql) === TRUE) {
+  echo "New records created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    echo "id: " . $row["id"]. " - Name: " . $row["Lastname"]. "  - Email: " . $row["email"]. "  - Website: " . $row["website"]. "  - Comment: " . $row["comment"]."<br>";
   }
 } else {
   echo "0 results";
 }
+
+
 $conn->close();
 ?>
   
@@ -211,11 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comment = test_input($_POST["comment"]);
   }
 
-  if (empty($_POST["gender"])) {
-    $genderErr = "Gender is required";
-  } else {
-    $gender = test_input($_POST["gender"]);
-  }
 }
 
 function test_input($data) {
@@ -240,12 +250,6 @@ function test_input($data) {
   <br><br>
   Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
   <br><br>
-  Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
-  <span class="error">* <?php echo $genderErr;?></span>
-  <br><br>
   <input type="submit"  name="submit" value="Submit">  
 </form>
 </div>
@@ -255,7 +259,6 @@ echo '<font color="pink">' . $name . '</font><br>';
 echo '<font color="pink">' . $email . '</font><br>';
 echo '<font color="pink">' . $website . '</font><br>';
 echo '<font color="pink">' . $comment . '</font><br>';
-echo '<font color="pink">' . $gender . '</font><br>';
 ?>
         
 </body>
