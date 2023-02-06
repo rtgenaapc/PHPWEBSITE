@@ -142,8 +142,8 @@
 
     <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "rtgena";
+$password = "rtgena";
 $dbname = "Website";
 
 // Create connection
