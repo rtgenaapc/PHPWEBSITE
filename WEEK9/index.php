@@ -20,7 +20,7 @@
         </div>
         <h1>RJ.</h1>
         <div class="header-right">
-          <a class="active" href="index.html"><b>Home</b></a>
+          <a class="active" href="index.php"><b>Home</b></a>
           <a href="#About"><b>Profile</b></a>
           <a href="#"><b>Experience</b></a>
           <a href="guests.php"><b>DB Records</b></a>
