@@ -148,7 +148,7 @@ $password = "webprogmi211";
 $dbname = "webprogmi211";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
@@ -156,13 +156,6 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-// Create database
-$sql = "INSERT DATABASE webprogmi211";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
 // sql to create table
 $sql = "CREATE TABLE gena_MyGuests (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
