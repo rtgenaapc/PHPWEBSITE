@@ -171,7 +171,7 @@ $email = $_POST['email'];
 $website = $_POST['website'];
 $comment = $_POST['comment'];
 
-$sql = "INSERT INTO gena_MyGuests (Lastname, email, website, comment)
+$sql = "INSERT INTO gena_MyGuests (Fullname, email, website, comment)
 VALUES ('$name','$email', '$website', '$comment')";
 
 if ($conn->multi_query($sql) === TRUE) {
