@@ -23,8 +23,8 @@
           <a class="active" href="index.html"><b>Home</b></a>
           <a href="#About"><b>Profile</b></a>
           <a href="#"><b>Experience</b></a>
+          <a href="guests.php"><b>DB Records</b></a>
           <a href="Javascript works.html"><b>JS Exercises</b></a>
-          <a href="guests"><b>DB Records</b></a>
           <a href="resource.html"><b>Resources</b></a>
           <a href="#Contact"><b>Contact Me</b></a>
         </div>
