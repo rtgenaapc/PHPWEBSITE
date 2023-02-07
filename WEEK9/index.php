@@ -150,14 +150,6 @@ $dbname = "webprogmi211";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-
-// Create database
-$sql = "CREATE DATABASE webprogmi211";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
 // sql to create table
 $sql = "CREATE TABLE gena_MyGuests (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -174,10 +166,105 @@ if ($conn->query($sql) === TRUE) {
   echo "Error creating table: " . $conn->error;
 }
 
+$name = $_POST['name'];
+$email = $_POST['email'];
+$website = $_POST['website'];
+$comment = $_POST['comment'];
 
+$sql = "INSERT INTO gena_MyGuests (Lastname, email, website, comment)
+VALUES ('$name','$email', '$website', '$comment')";
+
+if ($conn->multi_query($sql) === TRUE) {
+ echo "New records created successfully";
+} else {
+ echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
+$result = $conn->query($sql);
+// PHP_MySQL L 15.9 Select Data
 
 $conn->close();
 ?>
+
+
+
+
+
+    <?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  if (empty($_POST["name"])) {
+    $nameErr = "Name is required";
+  } else {
+    $name = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+      $nameErr = "Only letters and white space allowed";
+    }
+  }
   
+  if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+  } else {
+    $email = test_input($_POST["email"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailErr = "Invalid email format";
+    }
+  }
+    
+  if (empty($_POST["website"])) {
+    $website = "";
+  } else {
+    $website = test_input($_POST["website"]);
+    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
+    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+      $websiteErr = "Invalid URL";
+    }
+  }
+
+  if (empty($_POST["comment"])) {
+    $comment = "";
+  } else {
+    $comment = test_input($_POST["comment"]);
+  }
+
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+<div class="PHPFORM" style="color:white">
+<h2 >PHP Form Validation Example</h2>
+<p><span class="error">* required field</span></p>
+<form method="post"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $nameErr;?></span>
+  <br><br>
+  E-mail: <input type="text" name="email" value="<?php echo $email;?>">
+  <span class="error">* <?php echo $emailErr;?></span>
+  <br><br>
+  Website: <input type="text" name="website" value="<?php echo $website;?>">
+  <span class="error"><?php echo $websiteErr;?></span>
+  <br><br>
+  Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+  <br><br>
+  <input type="submit"  name="submit" value="Submit">  
+</form>
+</div>
+<?php
+echo '<br><font color="gray">Your Input:</font><br><br>';
+echo '<font color="pink">' . $name . '</font><br>';
+echo '<font color="pink">' . $email . '</font><br>';
+echo '<font color="pink">' . $website . '</font><br>';
+echo '<font color="pink">' . $comment . '</font><br>';
+?>
 </body>
 </html>
