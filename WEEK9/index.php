@@ -145,6 +145,7 @@
 $servername = "localhost";
 $username = "webprogmi211";
 $password = "webprogmi211";
+$dbname = "webprogmi211";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -155,6 +156,8 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 ?>
+
+
 
 //$name = $_POST['name'];
 //$email = $_POST['email'];
