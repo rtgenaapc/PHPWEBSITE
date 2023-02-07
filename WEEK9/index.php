@@ -150,14 +150,6 @@ $dbname = "webprogmi211";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
-
-// Create database
-$sql = "UPDATE DATABASE webprogmi211";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
-} else {
-  echo "Error creating database: " . $conn->error;
-}
 // sql to create table
 $sql = "CREATE TABLE gena_MyGuests (
   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
