@@ -24,6 +24,7 @@
           <a href="#About"><b>Profile</b></a>
           <a href="#"><b>Experience</b></a>
           <a href="Javascript works.html"><b>JS Exercises</b></a>
+          <a href="guests"><b>DB Records</b></a>
           <a href="resource.html"><b>Resources</b></a>
           <a href="#Contact"><b>Contact Me</b></a>
         </div>
@@ -168,16 +169,7 @@ if ($conn->multi_query($sql) === TRUE) {
 }
 $sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
 $result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Name: " . $row["Lastname"]. "  - Email: " . $row["email"]. "  - Website: " . $row["website"]. "  - Comment: " . $row["comment"]."<br>";
-  }
-} else {
-  echo "0 results";
-}
-
+// PHP_MySQL L 15.9 Select Data
 
 $conn->close();
 ?>
