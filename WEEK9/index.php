@@ -150,22 +150,11 @@ $dbname = "webprogmi211";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
-// sql to create table
-$sql = "CREATE TABLE gena_MyGuests (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  Lastname VARCHAR(30) NOT NULL,
-  email VARCHAR(30) NOT NULL,
-  website VARCHAR(50),
-  comment VARCHAR(99),
-  reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-  )";
-
-if ($conn->query($sql) === TRUE) {
-  echo "Table MyGuests created successfully";
-} else {
-  echo "Error creating table: " . $conn->error;
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
-
+echo "Connected successfully";
 $conn->close();
 ?>
   
