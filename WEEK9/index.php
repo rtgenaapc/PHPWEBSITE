@@ -156,22 +156,6 @@ if ($conn->connect_error) {
 }
 echo "Connected successfully";
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$website = $_POST['website'];
-$comment = $_POST['comment'];
-
-$sql = "INSERT INTO gena_MyGuests (Lastname, email, website, comment)
-VALUES ('$name','$email', '$website', '$comment')";
-
-if ($conn->multi_query($sql) === TRUE) {
- echo "New records created successfully";
-} else {
- echo "Error: " . $sql . "<br>" . $conn->error;
-}
-//$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
-//$result = $conn->query($sql);
-// PHP_MySQL L 15.9 Select Data
 
 $conn->close();
 ?>
