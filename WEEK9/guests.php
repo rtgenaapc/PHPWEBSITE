@@ -7,7 +7,7 @@ $dbname = "webprogmi211";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-$sql = "SELECT id, Fullname, email, website, comment FROM MyGuests";
+$sql = "SELECT id, Fullname, email, website, comment FROM gena_MyGuests";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
