@@ -157,7 +157,7 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 // Create database
-$sql = "CREATE DATABASE webprogmi211";
+$sql = "webprogmi211";
 if ($conn->query($sql) === TRUE) {
   echo "Database created successfully";
 } else {
