@@ -148,16 +148,11 @@ $password = "webprogmi211";
 $dbname = "webprogmi211";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
 
 // Create database
-$sql = "UPDATE DATABASE webprogmi211";
+$sql = "CREATE DATABASE webprogmi211";
 if ($conn->query($sql) === TRUE) {
   echo "Database created successfully";
 } else {
