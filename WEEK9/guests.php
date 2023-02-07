@@ -1,4 +1,4 @@
-<?php
+<//?php
 $servername = "localhost";
 $username = "rtgena";
 $password = "rtgena";

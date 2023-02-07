@@ -143,9 +143,9 @@
 
     <?php
 $servername = "localhost";
-$username = "rtgena";
-$password = "rtgena";
-$dbname = "Website";
+$username = "webprogmi211";
+$password = "webprogmi211";
+$dbname = "webprogmi211";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -154,21 +154,21 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$website = $_POST['website'];
-$comment = $_POST['comment'];
+//$name = $_POST['name'];
+//$email = $_POST['email'];
+//$website = $_POST['website'];
+//$comment = $_POST['comment'];
 
-$sql = "INSERT INTO MyGuests (Lastname, email, website, comment)
-VALUES ('$name','$email', '$website', '$comment')";
+//$sql = "INSERT INTO MyGuests (Lastname, email, website, comment)
+//VALUES ('$name','$email', '$website', '$comment')";
 
-if ($conn->multi_query($sql) === TRUE) {
-  echo "New records created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
-$result = $conn->query($sql);
+//if ($conn->multi_query($sql) === TRUE) {
+ // echo "New records created successfully";
+//} else {
+ // echo "Error: " . $sql . "<br>" . $conn->error;
+//}
+//$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
+//$result = $conn->query($sql);
 // PHP_MySQL L 15.9 Select Data
 
 $conn->close();
