@@ -155,28 +155,21 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Create database
-$sql = "CREATE DATABASE webprogmi211";
-if ($conn->query($sql) === TRUE) {
-  echo "Database created successfully";
+$name = $_POST['name'];
+$email = $_POST['email'];
+$website = $_POST['website'];
+$comment = $_POST['comment'];
+
+$sql = "INSERT INTO Gena_MyGuests (Fullname, email, website, comment)
+VALUES ('$name','$email', '$website', '$comment')";
+
+if ($conn->multi_query($sql) === TRUE) {
+ echo "New records created successfully";
 } else {
-  echo "Error creating database: " . $conn->error;
+ echo "Error: " . $sql . "<br>" . $conn->error;
 }
-//$name = $_POST['name'];
-//$email = $_POST['email'];
-//$website = $_POST['website'];
-//$comment = $_POST['comment'];
-
-//$sql = "INSERT INTO gena_MyGuests (Fullname, email, website, comment)
-//VALUES ('$name','$email', '$website', '$comment')";
-
-//if ($conn->multi_query($sql) === TRUE) {
- //echo "New records created successfully";
-//} //else {
-// echo "Error: " . $sql . "<br>" . $conn->error;
-//}
-//$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
-//$result = $conn->query($sql);
+$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
+$result = $conn->query($sql);
 // PHP_MySQL L 15.9 Select Data
 
 $conn->close();
