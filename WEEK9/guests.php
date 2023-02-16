@@ -26,15 +26,15 @@
     <div class="content">
         <div class="flex-container">
         <?php
-            $servername = "localhost";
+            $servername = "192.168.150.213";
             $username = "webprogmi211";
-            $password = "webprogmi211";
+            $password = "j@zzyAngle30";
             $dbname = "webprogmi211";
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
 
-            $sql = "SELECT id, Fullname, email, website, comment FROM gena_MyGuests";
+            $sql = "SELECT id, Fullname, email, website, comment FROM Gena_MyGuests";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

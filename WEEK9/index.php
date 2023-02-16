@@ -168,7 +168,7 @@ if ($conn->multi_query($sql) === TRUE) {
 } else {
  echo "Error: " . $sql . "<br>" . $conn->error;
 }
-$sql = "SELECT id, Lastname, email, website, comment FROM MyGuests";
+$sql = "SELECT id, Lastname, email, website, comment FROM Gena_MyGuests";
 $result = $conn->query($sql);
 // PHP_MySQL L 15.9 Select Data
 
