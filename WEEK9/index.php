@@ -155,6 +155,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+// Create database
+$sql = "CREATE DATABASE gena_MyGuests";
+if ($conn->query($sql) === TRUE) {
+  echo "Database created successfully";
+} else {
+  echo "Error creating database: " . $conn->error;
+}
 //$name = $_POST['name'];
 //$email = $_POST['email'];
 //$website = $_POST['website'];
