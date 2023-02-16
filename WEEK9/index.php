@@ -145,10 +145,10 @@
 $servername = "192.168.150.213";
 $username = "webprogmi211";
 $password = "j@zzyAngle30";
-#$dbname = "webprogmi211";
+$dbname = "webprogmi211";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password,$dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -156,7 +156,7 @@ if ($conn->connect_error) {
 }
 
 // Create database
-$sql = "CREATE DATABASE gena_MyGuests";
+$sql = "CREATE DATABASE webprogmi211";
 if ($conn->query($sql) === TRUE) {
   echo "Database created successfully";
 } else {
